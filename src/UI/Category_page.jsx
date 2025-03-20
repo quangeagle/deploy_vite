@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductBlock from "./ProductBlock";
-import Header from "./Header";
-import Footer from "./Footer";
+import Footer from "./footer";
+import Header from "./header";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();

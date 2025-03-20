@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Footer from "./Footer";
+import Footer from "./footer";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Header from "./Header";
+import Header from "./header";
 import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {

@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "./ffooter";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -12,7 +12,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import Header from "./Header";
+import Header from "./header";
 
 function DetailProduct() {
   const { id } = useParams();
