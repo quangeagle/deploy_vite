@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import ProductBlock from "./ProductBlock";
-import Footer from "./Footer";
+import Footer from "./footer";
 import Header from "./Header";
 
 const groupProducts = (products, itemsPerGroup) => {
