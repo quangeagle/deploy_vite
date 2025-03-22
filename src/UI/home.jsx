@@ -33,13 +33,14 @@ const Home = () => {
   }, []);
 
   const swiperImages = [
-    "logo2.png",
-    "logo3.png",
-    "logo10.png",
-    "logo4.png",
-    "logo8.png",
-    "logo6.png",
-    "logo5.png",
+    "/logo2.png",
+    "/logo3.png",
+    "/logo10.png",
+    "/logo4.png",
+    "/logo8.png",
+    "/logo6.png",
+    "/logo5.png",
+    
   ];
 
   return (
