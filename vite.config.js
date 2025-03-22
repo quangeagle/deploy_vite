@@ -3,7 +3,8 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Đảm bảo đúng đường dẫn khi deploy lên Vercel
   build: {
-    outDir: 'dist', // Đảm bảo file build ra thư mục "dist"
+    outDir: 'dist',
   },
 })
