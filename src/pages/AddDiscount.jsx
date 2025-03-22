@@ -13,7 +13,7 @@ function AddDiscount() {
 
   // Lấy danh sách danh mục từ backend để hiển thị trong dropdown
   useEffect(() => {
-    fetch("http://localhost:5000/api/categories") // Điều chỉnh endpoint API theo nhu cầu
+    fetch("https://deploy-be-0hfo.onrender.com/api/categories") // Điều chỉnh endpoint API theo nhu cầu
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Lỗi khi lấy danh mục:", err));
@@ -49,7 +49,7 @@ function AddDiscount() {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch("http://localhost:5000/api/discounts", {
+      const response = await fetch("https://deploy-be-0hfo.onrender.com/api/discounts", {
         // Điều chỉnh endpoint API theo nhu cầu
         method: "POST",
         headers: { "Content-Type": "application/json" },

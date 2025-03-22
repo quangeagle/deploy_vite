@@ -41,7 +41,7 @@ const Dashboard = () => {
   // Hàm gọi API để lấy số lượng người dùng
   const fetchUserCount = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/accounts/count"); // Gọi endpoint mới
+      const response = await fetch("https://deploy-be-0hfo.onrender.com/api/accounts/count"); // Gọi endpoint mới
       console.log("Response:", response);
 
       if (!response.ok) {

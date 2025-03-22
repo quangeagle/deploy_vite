@@ -15,7 +15,7 @@
 //             return;
 //         }
 //         const email = localStorage.getItem('resetEmail');
-//         axios.post('http://localhost:5000/api/accounts/verify-otp-password-reset', { otp, newPassword,email })
+//         axios.post('https://deploy-be-0hfo.onrender.com/api/accounts/verify-otp-password-reset', { otp, newPassword,email })
 //             .then(res => {
 //                 if (res.data.success) {
 //                     setSuccessMessage("Mật khẩu của bạn đã được thay đổi thành công.");
@@ -105,7 +105,7 @@ const ResetPassword = () => {
     }
 
     axios
-      .post("http://localhost:5000/api/accounts/verify-otp-password-reset", {
+      .post("https://deploy-be-0hfo.onrender.com/api/accounts/verify-otp-password-reset", {
         email,
         otp: otpCode,
       })
@@ -137,7 +137,7 @@ const ResetPassword = () => {
     }
 
     axios
-      .post("http://localhost:5000/api/accounts/reset-password", {
+      .post("https://deploy-be-0hfo.onrender.com/api/accounts/reset-password", {
         email,
         newPassword,
       })

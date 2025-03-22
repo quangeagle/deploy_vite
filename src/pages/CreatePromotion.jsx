@@ -18,7 +18,7 @@ const CreatePromotion = () => {
   // Lấy danh mục từ API
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/categories")
+      .get("https://deploy-be-0hfo.onrender.com/api/categories")
       .then((res) => setCategories(res.data))
       .catch((err) => console.error("Lỗi khi lấy danh mục:", err));
   }, []);
@@ -53,7 +53,7 @@ const CreatePromotion = () => {
     setSuccess(false);
 
     axios
-      .post("http://localhost:5000/promotion/add", promotion)
+      .post("https://deploy-be-0hfo.onrender.com/promotion/add", promotion)
       .then((res) => {
         setLoading(false);
         setSuccess(true);

@@ -31,7 +31,7 @@ function DetailProduct() {
     }
     // Fetch thông tin sản phẩm từ API
     axios
-      .get(`http://localhost:5000/api/products/${id}`)
+      .get(`https://deploy-be-0hfo.onrender.com/api/products/${id}`)
       .then((response) => {
         setProduct(response.data);
       })
@@ -40,7 +40,7 @@ function DetailProduct() {
       });
 
     axios
-      .get(`http://localhost:5000/api/kho/quantity/${id}`) 
+      .get(`https://deploy-be-0hfo.onrender.com/api/kho/quantity/${id}`) 
       .then((response) => {
         setInventory(response.data);
       })
@@ -62,7 +62,7 @@ function DetailProduct() {
   const addToCart = () => {
     if (account_id) {
       axios
-        .post("http://localhost:5000/api/carts", {
+        .post("https://deploy-be-0hfo.onrender.com/api/carts", {
           account_id,
           product_id: product._id,
           quantity,

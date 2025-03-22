@@ -15,7 +15,7 @@ function OrderSuccess() {
   // Hàm gọi API cập nhật trạng thái thanh toán
   const handlePaymentSuccess = async (orderId) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/orders/update-payment", {
+      const response = await axios.post("https://deploy-be-0hfo.onrender.com/api/orders/update-payment", {
         orderId: orderId,
         status: 1,
         accountId: account_id

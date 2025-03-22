@@ -18,7 +18,7 @@ function ViewOrder() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/orders/details/${orderId}`
+        `https://deploy-be-0hfo.onrender.com/api/orders/details/${orderId}`
       );
       if (!response.ok) {
         if (response.status === 404)

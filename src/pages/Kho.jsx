@@ -15,7 +15,7 @@ function ListKho() {
   useEffect(() => {
     const fetchKho = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/kho");
+        const response = await axios.get("https://deploy-be-0hfo.onrender.com/api/kho");
         setKhoList(response.data);
       } catch (error) {
         setError(error.message);
@@ -30,7 +30,7 @@ function ListKho() {
   const fetchProductDetails = async (productId) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/products/${productId}`
+        `https://deploy-be-0hfo.onrender.com/api/products/${productId}`
       );
       return response.data; // { _id, product_name, img, ... }
     } catch (error) {
@@ -68,7 +68,7 @@ function ListKho() {
 
   const handleAddSubmit = async () => {
     try {
-      await axios.patch("http://localhost:5000/api/kho/add", {
+      await axios.patch("https://deploy-be-0hfo.onrender.com/api/kho/add", {
         productId: addingProduct,
         quantity: parseInt(quantityToAdd),
       });
@@ -88,7 +88,7 @@ function ListKho() {
   // Xử lý khi bấm nút "Thêm sản phẩm mới vào kho"
   const handleAddNewProduct = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/kho/add", {
+      const response = await axios.post("https://deploy-be-0hfo.onrender.com/api/kho/add", {
         productId: newProductId,
         quantity: parseInt(newProductQuantity),
       });

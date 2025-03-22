@@ -12,7 +12,7 @@ const ListDiscount = () => {
   useEffect(() => {
     // Lấy danh sách khuyến mãi
     axios
-      .get("http://localhost:5000/promotion/list") // Thay bằng endpoint API của bạn
+      .get("https://deploy-be-0hfo.onrender.com/promotion/list") // Thay bằng endpoint API của bạn
       .then((res) => {
         setPromotions(res.data);
       })
@@ -24,7 +24,7 @@ const ListDiscount = () => {
 
     // Lấy danh sách danh mục
     axios
-      .get("http://localhost:5000/api/categories") // API lấy danh mục
+      .get("https://deploy-be-0hfo.onrender.com/api/categories") // API lấy danh mục
       .then((res) => {
         const categoryData = res.data.reduce((acc, category) => {
           acc[category._id] = category.category_name; // Lưu danh mục theo ID
@@ -42,7 +42,7 @@ const ListDiscount = () => {
   const deletePromotion = (promotionId) => {
     if (window.confirm("Bạn có chắc chắn muốn xóa khuyến mãi này?")) {
       axios
-        .delete(`http://localhost:5000/promotion/delete/${promotionId}`) // Đảm bảo đúng endpoint
+        .delete(`https://deploy-be-0hfo.onrender.com/promotion/delete/${promotionId}`) // Đảm bảo đúng endpoint
         .then(() => {
           alert("Khuyến mãi đã được xóa!");
           setPromotions(promotions.filter((promo) => promo._id !== promotionId)); // Cập nhật lại danh sách

@@ -14,7 +14,7 @@ const AddProduct = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/categories")
+    fetch("https://deploy-be-0hfo.onrender.com/api/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Lỗi khi lấy danh mục:", err));
@@ -92,7 +92,7 @@ const AddProduct = () => {
         newPrice: ProductNewPrice.replace(/[^0-9]/g, ""), // Chuyển đổi giá mới về dạng số
       };
 
-      const response = await fetch("http://localhost:5000/api/products", {
+      const response = await fetch("https://deploy-be-0hfo.onrender.com/api/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

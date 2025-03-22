@@ -34,7 +34,7 @@ const AddNCC = () => {
     if (!validateForm()) return; // Nếu không hợp lệ, dừng lại
 
     try {
-      const response = await fetch("http://localhost:5000/api/NCC", {
+      const response = await fetch("https://deploy-be-0hfo.onrender.com/api/NCC", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

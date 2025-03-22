@@ -26,7 +26,7 @@ function Order_inf() {
 
   const fetchCartItems = () => {
     axios
-      .get(`http://localhost:5000/api/carts/account/${account_id}`)
+      .get(`https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}`)
       .then((response) => {
         const items = (response.data.items || []).filter(
           (item) => item.product
@@ -78,7 +78,7 @@ function Order_inf() {
     const totalAmount = calculateTotal();
     
     try {
-      const orderResponse = await axios.post("http://localhost:5000/api/orders", {
+      const orderResponse = await axios.post("https://deploy-be-0hfo.onrender.com/api/orders", {
         ...formData,
         cart_items: cartItems.map((item) => ({
           product_id: item.product._id,
@@ -94,7 +94,7 @@ function Order_inf() {
         if (formData.payment_method === "ZaloPay") {
           try {
             // Sending request to ZaloPay
-            const paymentResponse = await axios.post("http://localhost:5000/payment", {
+            const paymentResponse = await axios.post("https://deploy-be-0hfo.onrender.com/payment", {
               amount: totalAmount,
               orderId: orderId,
             });

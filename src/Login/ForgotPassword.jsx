@@ -14,7 +14,7 @@ const ForgotPassword = () => {
             return;
         }
 
-        axios.post('http://localhost:5000/api/accounts/send-otp-password-reset', { email })
+        axios.post('https://deploy-be-0hfo.onrender.com/api/accounts/send-otp-password-reset', { email })
             .then(res => {
                 if (res.data.success) {
                     setSuccessMessage("OTP đã được gửi đến email của bạn.");

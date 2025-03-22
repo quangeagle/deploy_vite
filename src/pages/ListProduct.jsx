@@ -21,7 +21,7 @@ function ListProduct() {
   useEffect(() => {
     // Fetch categories created by admin
     axios
-      .get("http://localhost:5000/api/categories") // Assuming this endpoint fetches all category
+      .get("https://deploy-be-0hfo.onrender.com/api/categories") // Assuming this endpoint fetches all category
       .then((res) => setCategories(res.data))
       .catch((err) => console.error("Error fetching category:", err));
   }, []);
@@ -29,7 +29,7 @@ function ListProduct() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch("https://deploy-be-0hfo.onrender.com/api/products");
         if (!response.ok) throw new Error("Không thể lấy dữ liệu");
         const data = await response.json();
         setProductList(data);
@@ -103,7 +103,7 @@ function ListProduct() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/products/${editingProduct}`,
+        `https://deploy-be-0hfo.onrender.com/api/products/${editingProduct}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -131,7 +131,7 @@ function ListProduct() {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/products/${id}`, {
+      const response = await fetch(`https://deploy-be-0hfo.onrender.com/api/products/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Không thể xóa");

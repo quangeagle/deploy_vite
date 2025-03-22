@@ -24,7 +24,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/products")
+      .get("https://deploy-be-0hfo.onrender.com/api/products")
       .then((res) => {
         setProducts(res.data);
         setGroupedProducts(groupProducts(res.data, 5));
