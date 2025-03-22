@@ -13,7 +13,7 @@ function ListCategory() {
   useEffect(() => {
     // Fetch NCCs created by admin
     axios
-      .get("http://localhost:5000/api/NCC") // Assuming this endpoint fetches all NCC
+      .get("https://deploy-be-0hfo.onrender.com/api/NCC") // Assuming this endpoint fetches all NCC
       .then((res) => setNCCs(res.data))
       .catch((err) => console.error("Error fetching NCC:", err));
   }, []);
@@ -21,7 +21,7 @@ function ListCategory() {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/categories");
+        const response = await fetch("https://deploy-be-0hfo.onrender.com/api/categories");
         if (!response.ok) throw new Error("Không thể lấy dữ liệu");
         const data = await response.json();
         setCategoryList(data);
@@ -53,7 +53,7 @@ function ListCategory() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/categories/${editingCategory}`,
+        `https://deploy-be-0hfo.onrender.com/api/categories/${editingCategory}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -82,7 +82,7 @@ function ListCategory() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/categories/${id}`,
+        `https://deploy-be-0hfo.onrender.com/api/categories/${id}`,
         {
           method: "DELETE",
         }

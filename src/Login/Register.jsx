@@ -45,7 +45,7 @@
 //         }
 
 //         // Nếu không có lỗi, gửi yêu cầu đến server
-//         axios.post('http://localhost:5000/api/accounts/create', {
+//         axios.post('https://deploy-be-0hfo.onrender.com/api/accounts/create', {
 //             username, name, email, password, phone,
 //         }, {
 //             withCredentials: true
@@ -193,7 +193,7 @@ const Signup = () => {
     console.log("Dữ liệu gửi đi: ", dataToSend);
 
     axios
-      .post("http://localhost:5000/api/accounts/send-otp", dataToSend, {
+      .post("https://deploy-be-0hfo.onrender.com/api/accounts/send-otp", dataToSend, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -221,7 +221,7 @@ const Signup = () => {
     e.preventDefault();
     const otpCode = otp.join("");
     axios
-      .post("http://localhost:5000/api/accounts/verify-otp", {
+      .post("https://deploy-be-0hfo.onrender.com/api/accounts/verify-otp", {
         email,
         otp: otpCode,
         username,

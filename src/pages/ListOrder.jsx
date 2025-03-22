@@ -11,7 +11,7 @@ function ListOrder() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/orders");
+        const response = await fetch("https://deploy-be-0hfo.onrender.com/api/orders");
         if (!response.ok) throw new Error("Không thể lấy dữ liệu đơn hàng");
         const data = await response.json();
         setOrderList(data);

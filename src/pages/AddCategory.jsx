@@ -11,7 +11,7 @@ const AddCategory = () => {
   useEffect(() => {
     // Fetch NCCs created by admin
     axios
-      .get("http://localhost:5000/api/NCC")
+      .get("https://deploy-be-0hfo.onrender.com/api/NCC")
       .then((res) => setNCCs(res.data))
       .catch((err) => console.error("Error fetching NCC:", err));
   }, []);
@@ -36,7 +36,7 @@ const AddCategory = () => {
     const NCCId = document.getElementById("NCCId").value;
 
     try {
-      const response = await fetch("http://localhost:5000/api/categories", {
+      const response = await fetch("https://deploy-be-0hfo.onrender.com/api/categories", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

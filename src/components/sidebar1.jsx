@@ -22,7 +22,7 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     axios
-      .get("http://localhost:5000/api/auth/logout", { withCredentials: true })
+      .get("https://deploy-be-0hfo.onrender.com/api/auth/logout", { withCredentials: true })
       .then((response) => {
         console.log(response.data);
         navigate("/");

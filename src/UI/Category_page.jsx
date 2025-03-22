@@ -16,7 +16,7 @@ const CategoryPage = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/products/category/${categoryId}`
+          `https://deploy-be-0hfo.onrender.com/api/products/category/${categoryId}`
         );
         setProducts(response.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const CategoryPage = () => {
     const fetchCategoryName = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/categories/${categoryId}`
+          `https://deploy-be-0hfo.onrender.com/api/categories/${categoryId}`
         );
         setCategoryName(response.data.name);
       } catch (error) {

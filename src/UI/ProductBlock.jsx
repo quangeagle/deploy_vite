@@ -21,7 +21,7 @@ const ProductBlock = ({ product }) => {
 
     // Gửi yêu cầu thêm sản phẩm vào giỏ hàng
     axios
-      .post("http://localhost:5000/api/carts", {
+      .post("https://deploy-be-0hfo.onrender.com/api/carts", {
         accountId: account_id,
         productId: _id,
         quantity: 1, // Số lượng mặc định là 1

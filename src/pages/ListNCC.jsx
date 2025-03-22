@@ -15,7 +15,7 @@ function ListNCC() {
   useEffect(() => {
     const fetchNCC = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/NCC");
+        const response = await fetch("https://deploy-be-0hfo.onrender.com/api/NCC");
         if (!response.ok) throw new Error("Không thể lấy dữ liệu");
         const data = await response.json();
         setNccList(data);
@@ -60,7 +60,7 @@ function ListNCC() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/NCC/${editingNCC}`,
+        `https://deploy-be-0hfo.onrender.com/api/NCC/${editingNCC}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -86,7 +86,7 @@ function ListNCC() {
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/NCC/${id}`, {
+      const response = await fetch(`https://deploy-be-0hfo.onrender.com/api/NCC/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Không thể xóa");

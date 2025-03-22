@@ -11,7 +11,7 @@ const ListUser = () => {
     // Hàm gọi API để lấy danh sách người dùng
     const fetchUsers = async () => {
         try {
-            const response = await axios.get("http://localhost:5000/api/accounts/list"); // Gọi endpoint danh sách người dùng
+            const response = await axios.get("https://deploy-be-0hfo.onrender.com/api/accounts/list"); // Gọi endpoint danh sách người dùng
             if (response.data.success) {
                 setUsers(response.data.accounts); // Thiết lập danh sách người dùng
                 setUserCount(response.data.accounts.length); // Cập nhật số lượng người dùng

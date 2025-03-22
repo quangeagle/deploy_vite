@@ -21,7 +21,7 @@ const ShoppingCart = () => {
   // Hàm lấy dữ liệu giỏ hàng
   const fetchCartItems = () => {
     axios
-      .get(`http://localhost:5000/api/carts/account/${account_id}`)
+      .get(`https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}`)
       .then((response) => {
         const items = (response.data.items || []).filter((item) => item.product); // Lọc các sản phẩm hợp lệ
         setCartItems(items);
@@ -49,7 +49,7 @@ const ShoppingCart = () => {
     // Gọi API để cập nhật số lượng
     axios
       .patch(
-        `http://localhost:5000/api/carts/account/${account_id}/item/${productId}`,
+        `https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}/item/${productId}`,
         { quantity: newQuantity }
       )
       .catch((error) => {
@@ -61,7 +61,7 @@ const ShoppingCart = () => {
   const removeItem = (productId) => {
     axios
       .delete(
-        `http://localhost:5000/api/carts/account/${account_id}/item/${productId}` // Truyền đúng productId
+        `https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}/item/${productId}` // Truyền đúng productId
       )
       .then((response) => {
         console.log("Item removed successfully", response.data);
@@ -227,7 +227,7 @@ export default ShoppingCart;
 
 //   const fetchCartItems = () => {
 //     axios
-//       .get(`http://localhost:5000/api/carts/account/${account_id}`)
+//       .get(`https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}`)
 //       .then((response) => {
 //         const items = (response.data.items || []).filter((item) => item.product);
 //         setCartItems(items);
@@ -242,7 +242,7 @@ export default ShoppingCart;
 //   // Fetch inventory for the products in the cart
 //   const fetchProductInventory = (productId) => {
 //     axios
-//       .get(`http://localhost:5000/api/kho/quantity/${productId}`) // Requesting for a single product's inventory
+//       .get(`https://deploy-be-0hfo.onrender.com/api/kho/quantity/${productId}`) // Requesting for a single product's inventory
 //       .then((response) => {
 //         // Assuming response.data is an object like { quantity: 10 }
 //         setInventory(prevInventory => ({
@@ -275,7 +275,7 @@ export default ShoppingCart;
 //     // Update the backend
 //     axios
 //       .patch(
-//         `http://localhost:5000/api/carts/account/${account_id}/item/${productId}`,
+//         `https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}/item/${productId}`,
 //         { quantity: adjustedQuantity }
 //       )
 //       .catch((error) => {
@@ -286,7 +286,7 @@ export default ShoppingCart;
 
 //   const removeItem = (productId) => {
 //     axios
-//       .delete(`http://localhost:5000/api/carts/account/${account_id}/item/${productId}`)
+//       .delete(`https://deploy-be-0hfo.onrender.com/api/carts/account/${account_id}/item/${productId}`)
 //       .then(() => {
 //         fetchCartItems(); // Refresh cart after removal
 //       })

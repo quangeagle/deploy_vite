@@ -37,8 +37,8 @@ function Header() {
     const fetchData = async () => {
       try {
         const [categoriesRes, productsRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/categories"),
-          axios.get("http://localhost:5000/api/products"),
+          axios.get("https://deploy-be-0hfo.onrender.com/api/categories"),
+          axios.get("https://deploy-be-0hfo.onrender.com/api/products"),
         ]);
 
         setState((prev) => ({
@@ -102,7 +102,7 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:5000/api/auth/logout", {
+      await axios.get("https://deploy-be-0hfo.onrender.com/api/auth/logout", {
         withCredentials: true,
       });
 
