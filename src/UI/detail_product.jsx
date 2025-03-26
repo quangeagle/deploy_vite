@@ -108,7 +108,7 @@ function DetailProduct() {
 
   if (!product || !inventory) return <p>Loading...</p>;
   useEffect(() => {
-    if (account_id) {
+    if (account_id && product) {  // Chỉ gọi API khi product đã load
       axios
         .get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
         .then((response) => {
@@ -117,7 +117,8 @@ function DetailProduct() {
         })
         .catch((error) => console.error("Error fetching favorites:", error));
     }
-  }, [account_id, product]);
+  }, [account_id, product]);  // Thêm product vào dependency
+  
   const toggleFavorite = () => {
     if (!account_id) {
       navigate("/login");
@@ -135,7 +136,7 @@ function DetailProduct() {
     } else {
       // Gửi yêu cầu POST để thêm sản phẩm vào wishlist
       axios
-        .post("https://deploy-be-0hfo.onrender.com/wishlist/addadd", {
+        .post("https://deploy-be-0hfo.onrender.com/wishlist/add", {
           account_id,
           product_id: product._id,
         })
