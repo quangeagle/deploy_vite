@@ -24,7 +24,7 @@ function DetailProduct() {
   const [activeTab, setActiveTab] = useState("description");
   const maxQuantity = 24;
   const account_id = localStorage.getItem("userId");
-  const [isFavorite, setIsFavorite] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     axios.get(`https://deploy-be-0hfo.onrender.com/api/products/${id}`)
@@ -98,45 +98,49 @@ function DetailProduct() {
     }
   };
 
-  if (!product || !inventory) return <p>Loading...</p>;
-  useEffect(() => {
-    if (!account_id || !product || !product._id) return;
+  if (product === null || inventory === null) return <p>Loading...</p>;
+  if (!product) return <p>Không tìm thấy sản phẩm!</p>;
+  if (!inventory) return <p>Không có thông tin tồn kho!</p>;
   
-    axios.get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
-      .then(response => {
-        const favoriteProducts = response.data.map(item => item.product_id);
-        setIsFavorite(favoriteProducts.includes(product._id));
-      })
-      .catch(error => console.error("Error fetching favorites:", error));
-  }, [account_id, product]);
+
+  // useEffect(() => {
+  //   if (!account_id || !product || !product._id) return;
   
-  const toggleFavorite = () => {
-    if (!account_id) {
-      navigate("/login");
-      return;
-    }
+  //   axios.get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
+  //     .then(response => {
+  //       const favoriteProducts = response.data.map(item => item.product_id);
+  //       setIsFavorite(favoriteProducts.includes(product._id));
+  //     })
+  //     .catch(error => console.error("Error fetching favorites:", error));
+  // }, [account_id, product]);
   
-    if (isFavorite) {
-      // Gửi yêu cầu DELETE để xóa sản phẩm khỏi wishlist
-      axios
-        .delete(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}/${product._id}`)
-        .then(() => {
-          setIsFavorite(false);
-        })
-        .catch((error) => console.error("Error removing from wishlist:", error));
-    } else {
-      // Gửi yêu cầu POST để thêm sản phẩm vào wishlist
-      axios
-        .post("https://deploy-be-0hfo.onrender.com/wishlist/add", {
-          account_id,
-          product_id: product._id,
-        })
-        .then(() => {
-          setIsFavorite(true);
-        })
-        .catch((error) => console.error("Error adding to wishlist:", error));
-    }
-  };
+  // const toggleFavorite = () => {
+  //   if (!account_id) {
+  //     navigate("/login");
+  //     return;
+  //   }
+  
+  //   if (isFavorite) {
+  //     // Gửi yêu cầu DELETE để xóa sản phẩm khỏi wishlist
+  //     axios
+  //       .delete(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}/${product._id}`)
+  //       .then(() => {
+  //         setIsFavorite(false);
+  //       })
+  //       .catch((error) => console.error("Error removing from wishlist:", error));
+  //   } else {
+  //     // Gửi yêu cầu POST để thêm sản phẩm vào wishlist
+  //     axios
+  //       .post("https://deploy-be-0hfo.onrender.com/wishlist/add", {
+  //         account_id,
+  //         product_id: product._id,
+  //       })
+  //       .then(() => {
+  //         setIsFavorite(true);
+  //       })
+  //       .catch((error) => console.error("Error adding to wishlist:", error));
+  //   }
+  // };
   return (
     <>
       <Header />
@@ -230,8 +234,8 @@ function DetailProduct() {
                   >
                     Mua ngay
                   </button>
-                  <button onClick={toggleFavorite} className="h-8 px-2 py-1 rounded ml-5">
-                <FontAwesomeIcon icon={faHeart} className={isFavorite ? "text-red-500" : "text-gray-400"} />
+                  <button className="h-8 px-2 py-1 rounded ml-5">
+                <FontAwesomeIcon icon={faHeart} />
               </button>
                 </div>
               </div>
