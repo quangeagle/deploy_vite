@@ -108,7 +108,7 @@ function DetailProduct() {
 
   if (!product || !inventory) return <p>Loading...</p>;
   useEffect(() => {
-    if (account_id && product) {  // Chỉ gọi API khi product đã load
+    if (account_id && product?._id) { // Chỉ gọi API khi product đã có ID
       axios
         .get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
         .then((response) => {
@@ -117,7 +117,8 @@ function DetailProduct() {
         })
         .catch((error) => console.error("Error fetching favorites:", error));
     }
-  }, [account_id, product]);  // Thêm product vào dependency
+  }, [account_id, product?._id]); // Thêm product?._id vào dependency
+   // Thêm product vào dependency
   
   const toggleFavorite = () => {
     if (!account_id) {
@@ -239,9 +240,9 @@ function DetailProduct() {
                   >
                     Mua ngay
                   </button>
-                  <button className="h-8 px-2 py-1 bg-gray-200 rounded ml-5 hover:text-orange-400">
-                    <FontAwesomeIcon icon={faHeart} />
-                  </button>
+                  <button onClick={toggleFavorite} className="h-8 px-2 py-1 rounded ml-5">
+                <FontAwesomeIcon icon={faHeart} className={isFavorite ? "text-red-500" : "text-gray-400"} />
+              </button>
                 </div>
               </div>
             </div>
