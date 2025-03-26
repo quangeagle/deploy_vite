@@ -25,6 +25,7 @@ import ForgotPassword from "./Login/ForgotPassword";
 import Order_suc from "./UI/Order_suc";
 import AdminPanel from "./UI/AdminPanel";
 import UserPanel from "./UI/UserPanel";
+import Wishlist from "./UI/Wishlist";
 function App() {
   return (
     <Router>
@@ -50,6 +51,7 @@ function App() {
           <Route path="/AddDiscount" element={<AddDiscount />} />
           <Route path="/KhuyenMai" element={<CreatePromotion />} />
           <Route path="/ListDiscount" element={<ListDiscount />} />
+          <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Kho" element={<Kho />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
