@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Header from "./header";
-const [isFavorite, setIsFavorite] = useState(false);
+
 
 function DetailProduct() {
   const { id } = useParams();
@@ -24,6 +24,7 @@ function DetailProduct() {
   const [activeTab, setActiveTab] = useState("description");
   const maxQuantity = 24;
   const account_id = localStorage.getItem("userId");
+  const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     if (!id) {
