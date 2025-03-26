@@ -27,29 +27,21 @@ function DetailProduct() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    if (!id) {
-      console.error("Product ID is missing");
-      return;
-    }
-    // Fetch thông tin sản phẩm từ API
-    axios
-      .get(`https://deploy-be-0hfo.onrender.com/api/products/${id}`)
-      .then((response) => {
+    axios.get(`https://deploy-be-0hfo.onrender.com/api/products/${id}`)
+      .then(response => {
+        console.log("Product data:", response.data);
         setProduct(response.data);
       })
-      .catch((error) => {
-        console.error("Error fetching product:", error);
-      });
-
-    axios
-      .get(`https://deploy-be-0hfo.onrender.com/api/kho/quantity/${id}`) 
-      .then((response) => {
+      .catch(error => console.error("Error fetching product:", error));
+  
+    axios.get(`https://deploy-be-0hfo.onrender.com/api/kho/quantity/${id}`)
+      .then(response => {
+        console.log("Inventory data:", response.data);
         setInventory(response.data);
       })
-      .catch((error) => {
-        console.error("Error fetching inventory:", error);
-      });
+      .catch(error => console.error("Error fetching inventory:", error));
   }, [id]);
+  
 
   const decrementQuantity = () => {
     setQuantity((prevQuantity) => Math.max(1, prevQuantity - 1));
@@ -108,17 +100,15 @@ function DetailProduct() {
 
   if (!product || !inventory) return <p>Loading...</p>;
   useEffect(() => {
-    if (account_id && product?._id) { // Chỉ gọi API khi product đã có ID
-      axios
-        .get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
-        .then((response) => {
-          const favoriteProducts = response.data.map((item) => item.product_id);
-          setIsFavorite(favoriteProducts.includes(product._id));
-        })
-        .catch((error) => console.error("Error fetching favorites:", error));
-    }
-  }, [account_id, product?._id]); // Thêm product?._id vào dependency
-   // Thêm product vào dependency
+    if (!account_id || !product || !product._id) return;
+  
+    axios.get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
+      .then(response => {
+        const favoriteProducts = response.data.map(item => item.product_id);
+        setIsFavorite(favoriteProducts.includes(product._id));
+      })
+      .catch(error => console.error("Error fetching favorites:", error));
+  }, [account_id, product]);
   
   const toggleFavorite = () => {
     if (!account_id) {
