@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Header from "./header";
+const [isFavorite, setIsFavorite] = useState(false);
 
 function DetailProduct() {
   const { id } = useParams();
@@ -105,7 +106,44 @@ function DetailProduct() {
   };
 
   if (!product || !inventory) return <p>Loading...</p>;
-
+  useEffect(() => {
+    if (account_id) {
+      axios
+        .get(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}`)
+        .then((response) => {
+          const favoriteProducts = response.data.map((item) => item.product_id);
+          setIsFavorite(favoriteProducts.includes(product._id));
+        })
+        .catch((error) => console.error("Error fetching favorites:", error));
+    }
+  }, [account_id, product]);
+  const toggleFavorite = () => {
+    if (!account_id) {
+      navigate("/login");
+      return;
+    }
+  
+    if (isFavorite) {
+      // Gửi yêu cầu DELETE để xóa sản phẩm khỏi wishlist
+      axios
+        .delete(`https://deploy-be-0hfo.onrender.com/wishlist/${account_id}/${product._id}`)
+        .then(() => {
+          setIsFavorite(false);
+        })
+        .catch((error) => console.error("Error removing from wishlist:", error));
+    } else {
+      // Gửi yêu cầu POST để thêm sản phẩm vào wishlist
+      axios
+        .post("https://deploy-be-0hfo.onrender.com/wishlist/addadd", {
+          account_id,
+          product_id: product._id,
+        })
+        .then(() => {
+          setIsFavorite(true);
+        })
+        .catch((error) => console.error("Error adding to wishlist:", error));
+    }
+  };
   return (
     <>
       <Header />
