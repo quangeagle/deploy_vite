@@ -158,16 +158,16 @@ const ShoppingCart = () => {
 
                   {/* Nút xóa sản phẩm */}
                   <button
-  onClick={() => removeItem(item.product._id)}  // Truyền chỉ ID của sản phẩm
-  className="text-red-500 hover:underline ml-4"
->
-  Xóa
-</button>
+                  onClick={() => removeItem(item.product._id)}  // Truyền chỉ ID của sản phẩm
+                  className="text-red-500 hover:underline ml-4 xoacart"
+                >
+                  Xóa
+                </button>
                 </div>
               ))}
             </div>
           ) : (
-            <p className="text-center text-gray-500">
+            <p className="text-center text-gray-500 thongbaocart">
               Giỏ hàng của bạn đang trống.
             </p>
           )}
