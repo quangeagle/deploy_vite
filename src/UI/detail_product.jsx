@@ -176,10 +176,10 @@ function DetailProduct() {
                 </p>
               </div>
               <div className="mt-4 flex flex-row">
-                <div className="flex items-center">
+                <div className="flex items-center quantity-control2">
                   <button
                     onClick={decrementQuantity}
-                    className="px-3 h-8 bg-gray-200 rounded"
+                    className="px-3 h-8 bg-gray-200 rounded quantity-decrease2"
                   >
                     -
                   </button>
@@ -187,22 +187,22 @@ function DetailProduct() {
                     type="text"
                     value={quantity}
                     readOnly
-                    className="w-12 text-center border rounded h-8"
+                    className="w-12 text-center border rounded h-8 quantity-value2"
                   />
                   <button
                     onClick={incrementQuantity}
-                    className="px-3 h-8 bg-gray-200 rounded"
+                    className="px-3 h-8 bg-gray-200 rounded quantity-increase2"
                   >
                     +
                   </button>
                 </div>
                 {quantity === maxQuantity && (
-                  <div className="mt-2 text-sm text-yellow-800 bg-yellow-200 p-2 rounded flex items-center">
+                  <div className="mt-2 text-sm text-yellow-800 bg-yellow-200 p-2 rounded flex items-center thongbaosoluong">
                     <FontAwesomeIcon
                       icon={faInfoCircle}
                       className="mr-1 text-base"
                     />
-                    <span className="font-semibold">
+                    <span className="font-semibold thongbaosoluong2">
                       Giới hạn 24 sản phẩm/ngày, vui lòng quay lại ngày mai.
                     </span>
                   </div>
