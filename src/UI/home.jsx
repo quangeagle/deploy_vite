@@ -78,22 +78,23 @@ const Home = () => {
       </div>
 
       {/* Best Selling Products */}
-      <div className="h-auto bg-white mx-4 sm:mx-8 lg:mx-32 mt-16">
-        <div className="pt-5 pl-6 pb-4 font-bold text-xl border-b-4">
-          SẢN PHẨM BÁN CHẠY
-        </div>
-        <div className="flex flex-wrap gap-6">
-          {groupedProducts.map((group, idx) => (
-            <div key={idx} className="flex flex-row items-center">
-              {group.map((product) => (
-                <div key={product._id} className="flex-1 p-2">
-                  <ProductBlock product={product} />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+      <div className="h-auto bg-white mx-4 sm:mx-8 lg:mx-32 mt-16 best-seller-section">
+  <div className="pt-5 pl-6 pb-4 font-bold text-xl border-b-4">
+    SẢN PHẨM BÁN CHẠY
+  </div>
+  <div className="flex flex-wrap gap-6">
+    {groupedProducts.map((group, idx) => (
+      <div key={idx} className="flex flex-row items-center product-group">
+        {group.map((product) => (
+          <div key={product._id} className="flex-1 p-2 product-item">
+            <ProductBlock product={product} />
+          </div>
+        ))}
       </div>
+    ))}
+  </div>
+</div>
+
 
       {/* New Products Section */}
       <div className="h-auto bg-white mx-4 sm:mx-8 lg:mx-32 my-24">

@@ -171,7 +171,7 @@ const ProductBlock = ({ product }) => {
         <img src={img} alt={product_name} className="object-cover w-full h-full cursor-pointer transition-transform duration-300 ease-in-out transform hover:scale-105" />
       </Link>
 
-      <div className="text-sm font-medium text-center mb-2 line-clamp-2">{product_name}</div>
+      <div className="text-sm font-medium text-center mb-2 line-clamp-2 product-name">{product_name}</div>
       <div className="flex items-center justify-center mb-4">
         {newPrice ? (
           <>
