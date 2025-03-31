@@ -280,7 +280,7 @@ function Header() {
           />
           <FontAwesomeIcon
             icon={faCartShopping}
-            className="ml-4 text-2xl text-white cursor-pointer"
+            className="ml-4 text-2xl text-white cursor-pointer cart"
             onClick={() => navigate("/cart")}
           />
               <FontAwesomeIcon
