@@ -134,25 +134,22 @@ const ShoppingCart = () => {
                   </div>
 
                   {/* Phần tăng/giảm số lượng */}
-                  <div className="flex items-center">
-                    <button
-                      onClick={() =>
-                        updateQuantity(item.product._id, item.quantity - 1)
-                      }
-                      className="px-2 py-1 bg-gray-200 text-gray-700 rounded-l hover:bg-gray-300"
-                    >
-                      -
-                    </button>
-                    <span className="px-4">{item.quantity}</span>
-                    <button
-                      onClick={() =>
-                        updateQuantity(item.product._id, item.quantity + 1)
-                      }
-                      className="px-2 py-1 bg-gray-200 text-gray-700 rounded-r hover:bg-gray-300"
-                    >
-                      +
-                    </button>
-                  </div>
+                  <div className="flex items-center quantity-control">
+                  <button
+                    onClick={() => updateQuantity(item.product._id, item.quantity - 1)}
+                    className="px-2 py-1 bg-gray-200 text-gray-700 rounded-l hover:bg-gray-300 quantity-decrease"
+                  >
+                    -
+                  </button>
+                  <span className="px-4 quantity-value">{item.quantity}</span>
+                  <button
+                    onClick={() => updateQuantity(item.product._id, item.quantity + 1)}
+                    className="px-2 py-1 bg-gray-200 text-gray-700 rounded-r hover:bg-gray-300 quantity-increase"
+                  >
+                    +
+                  </button>
+                </div>
+
 
                   {/* Giá tiền */}
                   <div className="font-semibold text-lg">
