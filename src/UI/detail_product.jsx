@@ -209,12 +209,12 @@ function DetailProduct() {
                 )}
 
                 {quantity === inventory.quantity && (
-                  <div className="mt-2 text-sm text-red-800 bg-red-200 p-2 rounded flex items-center">
+                  <div className="mt-2 text-sm text-red-800 bg-red-200 p-2 rounded flex items-center thongbaosoluong3">
                     <FontAwesomeIcon
                       icon={faInfoCircle}
                       className="mr-1 text-base"
                     />
-                    <span className="font-semibold">
+                    <span className="font-semibold thongbaosoluong4">
                       Giới hạn mua tối đa là {inventory.quantity}.
                     </span>
                   </div>
