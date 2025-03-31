@@ -161,7 +161,7 @@ const ShoppingCart = () => {
                   onClick={() => removeItem(item.product._id)}  // Truyền chỉ ID của sản phẩm
                   className="text-red-500 hover:underline ml-4 xoacart"
                 >
-                  Xóa
+                  Xóa  
                 </button>
                 </div>
               ))}
