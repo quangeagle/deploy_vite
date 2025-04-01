@@ -199,9 +199,10 @@ function Order_inf() {
                 required
                 className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
               />
-              {phoneError && (
-                <p className="text-red-500 text-sm mt-1">{phoneError}</p>
-              )}
+               {phoneError && (
+              <p id="phone-error" className="text-red-500 text-sm mt-1">{phoneError}</p>
+            )}
+
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1 phuongthuctt">
@@ -220,22 +221,25 @@ function Order_inf() {
               </select>
             </div>
          
-            <div>
+                        <div>
               <label className="block text-sm font-medium text-gray-700 mb-1 ngay">
                 Ngày Giao Hàng
               </label>
               <input
                 type="date"
                 name="date"
-                value={formData.delivery_date}
+                value={formData.date}
                 onChange={handleChange}
                 required
                 min={minDate} 
                 max={maxDate}
                 className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
               />
+              {formData.date < minDate && (
+                <p id="date-error" className="text-red-500 text-sm mt-1">Ngày giao hàng không hợp lệ.</p>
+              )}
             </div>
-         
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1 gio">
                 Giờ Giao Hàng
@@ -243,14 +247,18 @@ function Order_inf() {
               <input
                 type="time"
                 name="time"
-                value={formData.delivery_time}
+                value={formData.time}
                 onChange={handleChange}
                 required
                 min={minTime} 
                 max={maxTime}
                 className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-400"
               />
+              {formData.time < minTime && (
+                <p id="time-error" className="text-red-500 text-sm mt-1">Giờ giao hàng không hợp lệ.</p>
+              )}
             </div>
+
             <button
               type="submit"
               className="w-full p-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 dathang"
