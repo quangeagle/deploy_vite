@@ -77,7 +77,7 @@ const Sidebar = () => {
         <li className="mb-2">
           <button
             onClick={() => setShowProductMenu(!showProductMenu)}
-            className="flex items-center hover:text-gray-300 w-full text-left"
+            className="flex items-center hover:text-gray-300 w-full text-left qlspqlsp"
           >
             <CubeIcon className="w-5 h-5 mr-2" />
             Quản lý sản phẩm
@@ -89,12 +89,12 @@ const Sidebar = () => {
           </button>
           {showProductMenu && (
             <ul className="ml-4 mt-2">
-              <li className="mb-1">
+              <li className="mb-1 themspthemsp">
                 <Link to="/AddProduct" className="hover:text-gray-300">
                   Thêm sản phẩm
                 </Link>
               </li>
-              <li className="mb-1">
+              <li className="mb-1 dsspdssp">
                 <Link to="/ListProduct" className="hover:text-gray-300">
                   Danh sách sản phẩm
                 </Link>
