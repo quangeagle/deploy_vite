@@ -162,7 +162,7 @@ function ListProduct() {
           Danh sách sản phẩm
         </h1>
         <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-          <table className="min-w-full border-collapse">
+          <table  id="productTable" className="min-w-full border-collapse">
             <thead className="bg-gray-300">
               <tr>
                 <th className="py-3 px-4 border-b text-left text-gray-700">
