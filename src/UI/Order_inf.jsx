@@ -148,7 +148,7 @@ function Order_inf() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 ten">
                 Tên Khách Hàng
               </label>
               <input
@@ -162,7 +162,7 @@ function Order_inf() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 diachi">
                 Địa Chỉ
               </label>
               <input
@@ -176,7 +176,7 @@ function Order_inf() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 sodienthoai">
                 Số Điện Thoại
               </label>
               <input
@@ -204,7 +204,7 @@ function Order_inf() {
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 phuongthuctt">
                 Phương Thức Thanh Toán
               </label>
               <select
@@ -221,7 +221,7 @@ function Order_inf() {
             </div>
          
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 ngay">
                 Ngày Giao Hàng
               </label>
               <input
@@ -237,7 +237,7 @@ function Order_inf() {
             </div>
          
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 mb-1 gio">
                 Giờ Giao Hàng
               </label>
               <input
@@ -253,7 +253,7 @@ function Order_inf() {
             </div>
             <button
               type="submit"
-              className="w-full p-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400"
+              className="w-full p-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 focus:outline-none focus:ring focus:ring-yellow-400 dathang"
             >
               Đặt hàng
             </button>

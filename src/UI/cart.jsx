@@ -183,7 +183,7 @@ const ShoppingCart = () => {
 
           <button
             onClick={handleCheckout}
-            className="bg-yellow-400 hover:bg-yellow-500 text-white py-2 px-4 rounded-md"
+            className="bg-yellow-400 hover:bg-yellow-500 text-white py-2 px-4 rounded-md thanhtoan"
           >
             Thanh Toán
           </button>
