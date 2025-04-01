@@ -76,6 +76,9 @@ function Header() {
       },
     }));
   };
+  
+  
+  
 
   const handleSearchChange = (e) => {
     const query = e.target.value;
@@ -115,11 +118,7 @@ function Header() {
   };
 
   const handleClickOutside = (e) => {
-    if (
-      Object.values(dropdownRefs.current).every(
-        (ref) => ref && !ref.contains(e.target)
-      )
-    ) {
+    if (!Object.values(dropdownRefs.current).some((ref) => ref?.contains(e.target))) {
       setState((prev) => ({
         ...prev,
         isDropdownOpen: {
@@ -132,12 +131,13 @@ function Header() {
       }));
     }
   };
+  
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
-
+  
   return (
     <header>
       <div className="bg-amber-400 h-auto w-full hidden md:flex items-center justify-center px-10 py-4">
@@ -247,32 +247,34 @@ function Header() {
         </div>
 
         {/* Tài khoản và icon */}
-        <div className="ml-8 flex items-center">
-          <div
-            onClick={() => toggleDropdown("user")}
-            className="relative text-white text-sm cursor-pointer"
-          >
-            Xin chào, {state.username || "Khách"}
-            {state.isDropdownOpen.user && (
-              <div
-                ref={(ref) => (dropdownRefs.current.user = ref)}
-                className="absolute bg-white shadow-lg rounded mt-2 w-56 transition-all duration-300 ease-in-out z-50"
-              >
-                <div
-                  onClick={handleLogout}
-                  className="p-3 text-gray-700 hover:bg-gray-100 cursor-pointer z-50"
-                >
-                  Đăng xuất
-                </div>
-                <div
-                   onClick={() => navigate("/messages")}
-                  className="p-3 text-gray-700 hover:bg-gray-100 cursor-pointer z-50"
-                >
-                  Nhắn tin với Admin
-                </div>
-              </div>
-            )}
-          </div>
+        <div  className="ml-8 flex items-center">
+        <div
+  className="relative text-white text-sm cursor-pointer"
+  ref={(ref) => (dropdownRefs.current.user = ref)}
+  onClick={(e) => {
+    e.stopPropagation();
+    toggleDropdown("user");
+  }}
+>
+  Xin chào, {state.username || "Khách"}
+  {state.isDropdownOpen.user && (
+    <div className="absolute bg-white shadow-lg rounded mt-2 w-56 z-50">
+      <div 
+        onClick={handleLogout} 
+        className="p-3 text-gray-700 hover:bg-gray-100 cursor-pointer"
+      >
+        Đăng xuất
+      </div>
+      <div 
+        onClick={() => navigate("/messages")} 
+        className="p-3 text-gray-700 hover:bg-gray-100 cursor-pointer"
+      >
+        Nhắn tin với Admin
+      </div>
+    </div>
+  )}
+
+
           <FontAwesomeIcon
             icon={faHeart}
             className="ml-4 text-2xl text-white cursor-pointer"
@@ -289,6 +291,10 @@ function Header() {
             onClick={() => navigate("/user")}
           />
         </div>
+
+
+        </div>
+        
       </div>
     </header>
   );
