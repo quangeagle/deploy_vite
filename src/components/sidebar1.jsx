@@ -151,7 +151,7 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li className="mb-1">
-                <Link to="/ListNCC" className="hover:text-gray-300">
+                <Link to="/ListNCC" className="hover:text-gray-300 themncc">
                   Danh sách nhà cung cấp
                 </Link>
               </li>
