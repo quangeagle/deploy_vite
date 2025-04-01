@@ -81,7 +81,7 @@ function OrderSuccess() {
    
         {status === "1" && orderId && (
           <p className="text-gray-800 mb-4">
-            Mã đơn hàng của bạn: <strong>{orderId}</strong>
+            Mã đơn hàng của bạn: <strong id="order-id">{orderId}</strong>
           </p>
         )}
 
