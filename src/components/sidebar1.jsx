@@ -150,9 +150,9 @@ const Sidebar = () => {
                   Thêm nhà cung cấp
                 </Link>
               </li>
-              <li className="mb-1">
-                <Link to="/ListNCC" className="hover:text-gray-300">
-                  Danh sách nhà cung cấp
+              <li className="mb-1 dsncc">
+                <Link to="/ListNCC" className="hover:text-gray-300 themncc">
+                  Danh sách nhà cung cấp 
                 </Link>
               </li>
             </ul>
