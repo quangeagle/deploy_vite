@@ -147,46 +147,45 @@ function Header() {
         </Link>
 
         {/* Dropdown danh mục */}
+       {/* Dropdown danh mục - Chuyển từ hover sang click */}
+       <div className="relative ml-8" ref={(ref) => (dropdownRefs.current.category = ref)}>
+  <div
+    className="flex items-center text-white cursor-pointer pr-4 pl-2 py-1 rounded-md hover:bg-amber-500"
+    onClick={(e) => {
+      e.stopPropagation(); // ✅ Rất quan trọng
+      toggleDropdown("category");
+    }}
+  >
+    <FontAwesomeIcon icon={faBars} className="text-lg" />
+    <p className="ml-2 text-base">Tất cả danh mục</p>
+    <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-sm" />
+  </div>
+
+  {state.isDropdownOpen.category && (
+    <div
+      className="absolute bg-gray-100 shadow-md rounded-lg mt-2 w-80 z-50 transition-all duration-300 ease-in-out"
+      onClick={(e) => e.stopPropagation()} // ✅ Ngăn sự kiện đóng khi click bên trong dropdown
+    >
+      {state.categories.map((category) => (
         <div
-          className="relative ml-8"
-          onMouseEnter={() =>
-            setState((prev) => ({
-              ...prev,
-              isDropdownOpen: { ...prev.isDropdownOpen, category: true },
-            }))
-          }
-          onMouseLeave={() =>
-            setState((prev) => ({
-              ...prev,
-              isDropdownOpen: { ...prev.isDropdownOpen, category: false },
-            }))
-          }
+          key={category._id}
+          className="flex items-center p-3 hover:bg-yellow-200 cursor-pointer rounded-md transition-all"
+          onClick={() => navigate(`/category/${category._id}`)}
         >
-          <div className="flex items-center text-white cursor-pointer pr-4 pl-2 py-1 rounded-md hover:bg-amber-500">
-            <FontAwesomeIcon icon={faBars} className="text-lg" />
-            <p className="ml-2 text-base">Tất cả danh mục</p>
-            <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-sm" />
-          </div>
-          {state.isDropdownOpen.category && (
-            <div className="absolute bg-gray-100 shadow-md rounded-lg mt-2 w-80 z-50 transition-all duration-300 ease-in-out">
-              {state.categories.map((category) => (
-                <div
-                  key={category._id}
-                  className="flex items-center p-3 hover:bg-yellow-200 cursor-pointer rounded-md transition-all"
-                  onClick={() => navigate(`/category/${category._id}`)}
-                >
-                  <FontAwesomeIcon
-                    icon={faChevronRight}
-                    className="mr-2 text-gray-600"
-                  />
-                  <p className="text-lg font-medium text-gray-800">
-                    {category.category_name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            className="mr-2 text-gray-600"
+          />
+          <p className="text-lg font-medium text-gray-800">
+            {category.category_name}
+          </p>
         </div>
+      ))}
+    </div>
+  )}
+</div>
+
+
 
         {/* Thanh tìm kiếm */}
         <div className="relative flex items-center justify-center ml-8">
